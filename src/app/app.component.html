@@ -1,0 +1,16 @@
+<div class="toggle-switch" [class.checked]="isGalleryLayout" (click)="toggleLayout()">
+  <div class="switch"></div>
+</div>
+<button (click)="addPerson()">add</button>
+<div [ngClass]="isGalleryLayout ? 'card-grid' : ''">
+  <div class="card mx-2 mb-3" *ngFor="let person of people">
+    <div class="card-body">
+      <button (click)="editPerson(person)">Edit</button>
+      <button (click)="deletPerson(person)">delete</button>
+      <h5 class="card-title">{{ person.firstName }} {{ person.lastName }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ person.email }}</h6>
+      <p class="card-text">Age: {{ person.age }}</p>
+      <p class="card-text">id: {{ person.id }}</p>
+    </div>
+  </div>
+</div>
